@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "894413681287",
+    "project_id": "mynotes-152002-ak",
+    "storage_bucket": "mynotes-152002-ak.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894413681287:android:d1564021c4152f60473e22",
+        "android_client_info": {
+          "package_name": "se.pixolity.mynotes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "894413681287-sogb966o6fj4qr7nh3b8500c5ev4aff0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpb-rnRFzrs6zVDtehUnkti8Ekz_L-KLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "894413681287-sogb966o6fj4qr7nh3b8500c5ev4aff0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "894413681287-9nulmebfb4b1lnih0oj9ql06t4rtjf04.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "se.pixolity.mynotes"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
