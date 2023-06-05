@@ -1,4 +1,4 @@
-
+import 'dart:developer'as devtools show log;
 
 
 import 'package:firebase_auth/firebase_auth.dart';
@@ -46,18 +46,22 @@ late final TextEditingController _password;
               TextButton(onPressed: () async {
                 final email =_email.text;
                 final password=_password.text;
-                try{final userCredential= await FirebaseAuth.instance.signInWithEmailAndPassword(email: email , password: password);
-               print(userCredential);
+                try{final userCredential= await FirebaseAuth.instance.signInWithEmailAndPassword(
+                  email: email , 
+                password: password,);
+               devtools.log(userCredential.toString());
+               Navigator.of(context).pushNamedAndRemoveUntil('/notes/', (route) => false,);
+                     
                      }on FirebaseAuthException catch (e){
                       if (e.code =='user-not-found'){
-                      print('User Not Found!');
+                      devtools.log('User Not Found!');
                       
                       }
                       else if(e.code == 'wrong-password') {
-                        print('Wrong Password');
+                        devtools.log('Wrong Password');
                       }
                       else{
-                        print('Something else happened!');
+                        devtools.log('Something else happened!');
                       }
     
     
