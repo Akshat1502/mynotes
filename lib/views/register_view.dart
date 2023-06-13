@@ -50,8 +50,12 @@ late final TextEditingController _password;
               TextButton(onPressed: () async {
                 final email =_email.text;
                 final password=_password.text;
+               
         try{ final userCredential= await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email , password: password);
                devtools.log(userCredential.toString());
+               final user = FirebaseAuth.instance.currentUser;
+               await user?.sendEmailVerification();
+                Navigator.of(context).pushNamed(verifyemailroute);
   
         }on FirebaseAuthException catch(e){
           if(e.code=='weak-password'){
@@ -65,8 +69,11 @@ late final TextEditingController _password;
             await showErrorDialog(context,'Please Enter Valid Email');
           }
           else{
-            await showErrorDialog(context, 'Something Went Wrong!');
+            await showErrorDialog(context, 'Error: ${e.code}',);
           }
+        }
+        catch(e){
+          await showErrorDialog(context, e.toString());
         }
   
               
