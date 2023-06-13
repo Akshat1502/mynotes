@@ -52,7 +52,16 @@ late final TextEditingController _password;
                   email: email , 
                 password: password,);
                devtools.log(userCredential.toString());
-               Navigator.of(context).pushNamedAndRemoveUntil(notesRoute, (route) => false,);
+               final user = FirebaseAuth.instance.currentUser;
+               if(user?.emailVerified ?? false){
+                //User is verified and can now move to notes view
+                  Navigator.of(context).pushNamedAndRemoveUntil(notesRoute, (route) => false,);
+               }
+               else{
+                //user isnt verified yet move to verify email view!
+                  Navigator.of(context).pushNamedAndRemoveUntil(verifyemailroute, (route) => false,);
+               }
+             
                      
                      }on FirebaseAuthException catch (e){
                       if (e.code =='user-not-found'){
